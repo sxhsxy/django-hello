@@ -1,0 +1,16 @@
+.gradle
+build
+.idea
+*.iml
+*.ipr
+*.iws
+*.log
+out
+*.ids
+*.bak
+gradle-app.setting
+target/
+*.sublime-workspace
+bower_components
+*bak___
+*old___

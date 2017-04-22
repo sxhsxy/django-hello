@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index Page</title>
+</head>
+<body>
+<form method="post" action="{% url 'chaxun:query' %}">
+    {% csrf_token %}
+    <label for="identify_number" >身份证号：</label>
+    <input type="text" name="identify_number" id="identify_number"/>
+    <label for="name" >姓名：</label>
+    <input type="text" name="name" id="name"/>
+    <label for="captcha" >验证码：</label>
+    <input type="text" name="captcha" id="captcha"/>
+    <input type="submit" value="查询" />
+    <img src="{% url 'chaxun:captcha' %}">
+</form>
+</body>
+</html>
