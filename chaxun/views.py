@@ -27,9 +27,12 @@ def query(request):
     identify_number = request.POST['identify_number']
     name = request.POST['name']
     captcha_input = request.POST['captcha']
-    captcha = request.session['captcha']
-    if captcha_input.strip() == captcha:
-        return HttpResponse('account_numer')
+    del request.POST['captcha']
+    if 'captcha' in request.session:
+        captcha_stored = request.session['captcha']
+        del request.session['captcha']
+        if captcha_input.strip() == captcha_stored:
+            return HttpResponse('account_numer')
     else:
         return HttpResponse('not found')
 
